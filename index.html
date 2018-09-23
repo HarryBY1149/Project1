@@ -10,51 +10,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <title>Recipe Finder!</title>
-    <style type="text/css">
-        body {
-            color: #805e0091;
-        }
-
-        .page-header {
-            color: #f7cc5691;
-            text-align: center;
-        }
-
-        .jcontainer {
-            font-family: sans-serif;
-            text-align: center;
-            color: black;
-            background-color: brown;
-            margin-top: none;
-            border: none;
-            background-image: url("assets/images/cover.png");
-        }
-
-        h1 {
-            font-family: Arial, Helvetica, sans-serif;
-            color: black;
-        }
-
-        .form-group mb-2 {
-            align-content: center;
-            text-align: center;
-        }
-
-        .card {
-            background-color: #805e0091;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 
 
 <body>
-    <div class="page-header">
-        <h1>Recipe Finder</h1>
-    </div>
+    
 
     <div class="jcontainer">
-        <div class="jumbotron">
+            
+        <div class="jumbotron"><div class="page-header">
+                    <h1>Recipe Finder</h1>
+                </div>
+                <div class="btn-group" id="recipeDrop">
+                <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="myRecipesButton">
+                        <h3>My Recipes</h3>
+                      </button>
+                <div class="dropdown-menu p-4 text-dark" id="myRecipes">
+            
+                </div>
+            </div>
             <h1>Enter your ingredients below!</h1>
 
             <div class="form-group">
@@ -73,22 +48,26 @@
                         <label class="checkbox-inline"><input type="checkbox" data-value="&diet=vegetarian">Vegetarian</label>
                     </div>
                     <div class id="HighProtein">
-                        <label class="checkbox-inline"><input type="checkbox" data-value="&health=high-protien">High Protein</label>
+                        <label class="checkbox-inline"><input type="checkbox" data-value="&health=high-protien">High
+                            Protein</label>
                     </div>
                     <div class id="LowFat">
                         <label class="checkbox-inline"><input type="checkbox" data-value="&diet=low-fat">Low Fat</label>
                     </div>
                     <div class id="TreeNutFree">
-                        <label class="checkbox-inline"><input type="checkbox" data-value="&health=tree-nut-free">Tree Nut Free</label>
+                        <label class="checkbox-inline"><input type="checkbox" data-value="&health=tree-nut-free">Tree
+                            Nut Free</label>
                     </div>
                     <div class id="Alcohol Free">
-                        <label class="checkbox-inline"><input type="checkbox" data-value="&health=alcohol-free">Alcohol Free</label>
+                        <label class="checkbox-inline"><input type="checkbox" data-value="&health=alcohol-free">Alcohol
+                            Free</label>
                     </div>
                     <div class id="LowCarb">
                         <label class="checkbox-inline"><input type="checkbox" data-value="&diet=low-carb">Low Carb</label>
                     </div>
                     <div class id="PeanutFree">
-                        <label class="checkbox-inline"><input type="checkbox" data-value="&health=peanut-free">Peanut Free</label>
+                        <label class="checkbox-inline"><input type="checkbox" data-value="&health=peanut-free">Peanut
+                            Free</label>
                     </div>
                     <div class id="SugarConscious">
                         <label class="checkbox-inline"><input type="checkbox" data-value="&health=sugar-conscious">SugarConscious</label>
@@ -99,39 +78,17 @@
             <hr>
         </div>
 
-        <!-- <div class="justify-content-center">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Featured Recipe</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Complete Recipe</a>
-                </div>
-            </div>
-        </div> -->
 
         <div class="container">
             <h2>Recipes</h2>
             <div id="myCarousel" class="carousel slide">
                 <ol class="carousel-indicators" id="carousel-indicators">
-                    <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li> -->
+
                 </ol>
 
 
                 <div class="carousel-inner" id="recipeDisp">
-                    <!-- <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img class="d-block w-100" src=".../800x400?auto=yes&bg=777&fg=555&text=First slide" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
-                    </div> -->
+
                 </div>
 
 
@@ -153,9 +110,10 @@
 
             </div>
         </div>
-        <div class= "row" id="recipeDetails">
-            
-            
+        <div class="row" >
+            <div class="col-md-10 mx-auto" id="recipeDetails">
+
+            </div>
         </div>
         <div id="edamam-badge" data-color="white"></div>
 
@@ -166,6 +124,7 @@
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
         <script src="https://developer.edamam.com/attribution/badge.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>

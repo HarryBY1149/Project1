@@ -56,7 +56,11 @@ $(document).ready(function () {
             url: recipeURL,
             method: "get",
         }).then(function (response) {
+            if(response.hits.length !== 0){
             genCards(response);
+            } else {
+                $("#recipeDisp").append("<h2 class='text-light text-center mt-2'>Sorry, no recipes found.  Please try again!</h2>")
+            }
             console.log(response);
         })
     }

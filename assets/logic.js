@@ -92,14 +92,13 @@ $(document).ready(function () {
 
     $(document).on("click", ".carousel-item", function () {
         $("#recipeDetails").empty();
-        queryID = $(this).attr("data-id");
+        queryID = $(this).attr("data-id") ;
         var secondaryURL = "https://api.edamam.com/search?q=" + queryID + "&app_id=cae126c9&app_key=c5ce740a41e85392d651319a8ae31a99&diet=balanced";
         $.ajax({
             url: secondaryURL,
             method: "get"
         }).then(function (response) {
             console.log(response)
-            var label = response.hits[0].recipe.label
             var directionsURL = response.hits[0].recipe.url;
             var ingredients = response.hits[0].recipe.ingredients;
             var totalDaily = response.hits[0].recipe.totalDaily;
@@ -107,6 +106,20 @@ $(document).ready(function () {
             directionslink(directionsURL);
             ingredientBreakout(ingredients);
             nutritionBreakout(totalDaily, totalNutrients);  
+        })
+    })
+
+    $("#addRecipe").on("click", function(){
+        thisQueryID = queryID;
+        var tertiaryURL = "https://api.edamam.com/search?q=" + thisQueryID + "&app_id=cae126c9&app_key=c5ce740a41e85392d651319a8ae31a99&diet=balanced";
+        $.ajax({
+            url: tertiaryURL,
+            method: "get"
+        }).then(function (response) {
+            console.log(response)
+            var label = response.hits[0].recipe.label
+            var directionsURL = response.hits[0].recipe.url;
+            var ingredients = response.hits[0].recipe.ingredients; 
             myRecipes(ingredients, directionsURL, label);
             populateMyRecipes();
         })

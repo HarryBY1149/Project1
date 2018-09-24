@@ -104,9 +104,9 @@ $(document).ready(function () {
             var ingredients = response.hits[0].recipe.ingredients;
             var totalDaily = response.hits[0].recipe.totalDaily;
             var totalNutrients = response.hits[0].recipe.totalNutrients;
+            directionslink(directionsURL);
             ingredientBreakout(ingredients);
-            nutritionBreakout(totalDaily, totalNutrients);
-            directionsBreakout(directionsURL);
+            nutritionBreakout(totalDaily, totalNutrients);  
             myRecipes(ingredients, directionsURL, label);
             populateMyRecipes();
         })
@@ -177,13 +177,20 @@ $(document).ready(function () {
         $("#recipeDetails").append(nutritionDiv);
     }
 
-    function directionsBreakout(directionsURL) {
-        var directionsDiv = $("<div>")
-        directionsDiv.addClass("col-md-5 float-right text-center")
-        var directionsLink = $(`<a href="${directionsURL}" target="_blank"><h3>Click here for the whole recipe!</a>`)
-        directionsDiv.append(directionsLink);
-        $("#recipeDetails").append(directionsDiv);
-    }
+        function directionslink(link){
+            var directiondiv = $("<div>");
+            directiondiv.addClass("col-md-12 text-center");
+            var directionbutton = $("<a>");
+            directionbutton.attr("href",link);
+            directionbutton.attr("target", "_blank");
+            directionbutton.text("Link to recipe");
+            directionbutton.addClass("btn btn-outline-light");
+            directiondiv.append(directionbutton);
+            $("#recipeDetails").append(directiondiv);
+        }
+
+        
+
     $(document).on("click", "#checkLabel", function () {
         if (displayed === false) {
             $(".preferences").css("display", "block");
@@ -203,7 +210,7 @@ $(document).ready(function () {
         };
     })
 
-    database.ref(".info/connected/").on("value", function (snap) {
+    database.ref(".info/connected/").on("value", function () {
         var con = database.ref("/connections").push(true);
         con.onDisconnect().remove();
         recipes = database.ref("/myRecipes")

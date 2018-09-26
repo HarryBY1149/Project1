@@ -1,48 +1,252 @@
-body {
-    color: #805e0091;
-}
-
 .page-header {
-    color: #f7cc5691;
+    border: 3px #000F08;
+    background-color: #F4FFF8;
     text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px dashed #1C3738;
+    margin: 0 auto;
 }
 
 .jcontainer {
     font-family: sans-serif;
     text-align: center;
-    color: black;
-    background-color: brown;
-    margin-top: none;
-    border: none;
-    background-image: url("assets/images/cover.png");
+    color: #1C3738;
+    background-color: #8BAAAD;
+    height: 100%;
+}
+
+.jumbotron{
+   border: 0px;
+   padding-bottom: 30px;
+   border-radius: 1px;
+}
+
+.title{
+    font-size: 100px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #1C3738;
+    letter-spacing: 4px;
+    margin-bottom: 0px;
+    padding: 0px;
 }
 
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    font-size: 60px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #1C3738;
+    padding-top: 35px;
+    padding-bottom: 19px;
+    letter-spacing: 4px;
+
+}
+
+h2{
+    font-size: 40px;
+    color: #1C3738;
+    font-family: 'Open Sans Condensed', sans-serif; 
+}
+
+
+h4{
+    text-align: center;
+    color: #F4FFF8;
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+
+h5{
+    color: #F4FFF8;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h6{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #000F08;
+}
+
+tr{
+    color: #F4FFF8;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+th{
+    text-decoration: underline;
+}
+
+td{
+    color: #F4FFF8;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+p{
+    color: #F4FFF8;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+a{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #F4FFF8;
+    
+}
+
+.dropdown{
+    background-color: #F4FFF8;
+    border-radius: 25px;
+    border: 5px #000F08;
+    font-family: 'Open Sans Condensed', sans-serif;
+    cursor: pointer;
+    margin: 0%;
+    text-align: center;
 }
 
 .form-group mb-2 {
     align-content: center;
     text-align: center;
+    border-radius: 25%;
+    
 }
 
-.card {
-    background-color: #805e0091;
-    width: 100%;
+.cardLabel{
+    background-color: #1C3738;
+    align-content: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.cardImage{
+    padding-bottom: 75px;
+    padding-top: 25px;
+}
+
+input[type=text]{
+    width: 50%;
+    margin-right: 25%;
+    margin-left: 25%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border: 1px solid #1C3738;
+    border-radius: 25px;
+    background-color: #F4FFF8;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 30px;
+
+
+}
+
+.container{
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: #1C3738;
+    margin-bottom: 25px; 
+    border-radius: 25px; 
+    padding: 10px;   
+
+}
+
+
+.button{
+    background-color: #F4FFF8;
+    border-radius: 1px;
+    border: 5px #000F08;
+    font-family: 'Open Sans Condensed', sans-serif;
+    cursor: pointer;   
+}
+
+.button2{
+    background-color: #F4FFF8;
+    border-radius: 25px;
+    border: 5px #000F08;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    align-content: center;
+}
+
+.button3{
+    background-color: #1C3738;
+    border-radius: 25px;
+    border: 5px #000F08;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    align-content: center;
+    padding: 10px;
+}
+
+.button4{
+    background-color: #F4FFF8;
+    border-radius: 25px;
+    border: 5px #000F08;
+    font-family: 'Open Sans Condensed', sans-serif;
+    cursor: pointer;  
+}
+
+#myCarousel{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.carousel-indicators li{
+    border-radius: 10px;
+    margin: 1px 3px;
+    height: 10px;
+    max-width: 10px;
+    border: 1px solid #FFF;
+    background-color: transparent;
+   
+}
+
+.preferenceButton{
+    cursor: pointer;
+    margin: 0 auto;
+    display: table; 
+    width: 50%;
+    margin-bottom: 17px;
+}
+
+
+.preferences{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #000F08;
+    font-size: 20px;
+    cursor: pointer;
+    width: 346px;
+    align-content: center;
+    border: 1px dashed #1C3738;
+    margin: 0 auto;
+    display: table; 
+    margin-bottom: 17px;
 }
 
 #recipeDrop {
     position: absolute;
-    top: 10px;
-    right: 10px;
-}
-#recipeDrop{
+    top: 15px;
+    right: 0px;
     width: 260px;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 #myRecipes{
     overflow-y:scroll;
     width:240px;
     margin-top: 16px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-color: #1C3738;
 }
+
+.edamamBadge{
+    right: 0;
+    margin-bottom: 0px; 
+}
+
+.footer{
+    height: 40px;
+    padding: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+ 

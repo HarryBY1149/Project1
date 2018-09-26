@@ -110,13 +110,11 @@ $(document).ready(function () {
             var totalNutrients = response.hits[0].recipe.totalNutrients;
             directionslink(directionsURL);
             ingredientBreakout(ingredients);
-            nutritionBreakout(totalDaily, totalNutrients);
-            addRecipe();
-             
+            nutritionBreakout(totalDaily, totalNutrients);  
         })
     })
 
-    $(document).on("click","#addRecipe", function(){
+    $("#addRecipe").on("click", function(){
         thisQueryID = queryID;
         var tertiaryURL = "https://api.edamam.com/search?q=" + thisQueryID + "&app_id=cae126c9&app_key=c5ce740a41e85392d651319a8ae31a99&diet=balanced";
         $.ajax({
@@ -200,7 +198,7 @@ $(document).ready(function () {
 
         function directionslink(link){
             var directiondiv = $("<div>");
-            directiondiv.addClass("col-md-12 mb-2 text-center");
+            directiondiv.addClass("col-md-12 text-center");
             var directionbutton = $("<a>");
             directionbutton.attr("href",link);
             directionbutton.attr("target", "_blank");
@@ -208,14 +206,6 @@ $(document).ready(function () {
             directionbutton.addClass("button3");
             directiondiv.append(directionbutton);
             $("#recipeDetails").append(directiondiv);
-        }
-        function addRecipe(){
-            var addRecipeBtn = $("<button>");
-            addRecipeBtn.addClass("button3 mt-2");
-            addRecipeBtn.attr("id","addRecipe");
-            addRecipeBtn.text("Add to my recipes")
-            $("#recipeDetails").append(addRecipeBtn);
-
         }
 
         

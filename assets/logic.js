@@ -48,18 +48,22 @@ $(document).ready(function () {
     })
 
     function primarySearch() {
-        var search = $("#search").val().trim();
+        queryID = $("#search").val().trim();
         var from = offset1;
         var to = offset2;
-        var recipeURL = "https://api.edamam.com/search?q=" + search + "&app_id=cae126c9&app_key=c5ce740a41e85392d651319a8ae31a99&from=" + from + "&to=" + to + "&diet=balanced" + healthString;
+        var recipeURL = "https://api.edamam.com/search?q=" + queryID + "&app_id=cae126c9&app_key=c5ce740a41e85392d651319a8ae31a99&from=" + from + "&to=" + to + "&diet=balanced" + healthString;
         $.ajax({
             url: recipeURL,
             method: "get",
         }).then(function (response) {
+            if(response.hits.length !== 0){
             genCards(response);
+            } else {
+                $("#recipeDisp").append("<h2 class='text-light text-center mt-2'>Sorry, no recipes found.  Please try again!</h2>")
+            }
             console.log(response);
         })
-    }
+    } 
 
     function genCards(response) {
         for (var i = 0; i < response.hits.length; i++) {
@@ -75,8 +79,9 @@ $(document).ready(function () {
             var cardImage = $("<img>")
             cardImage.attr("src", recImage)
             cardImage.attr("alt", "Delicious Foods")
+            cardImage.addClass("cardImage")
             var cardLabel = $("<div>")
-            cardLabel.addClass("carousel-caption d-none d-md-block")
+            cardLabel.addClass("carousel-caption d-none d-md-block cardLabel")
             cardLabel.append("<h5>" + recTitle + "</h5>");
             card.append(cardImage);
             card.append(cardLabel);
@@ -127,22 +132,23 @@ $(document).ready(function () {
 
     function ingredientBreakout(ingredients) {
         var ingredientDiv = $("<div>")
-        ingredientDiv.append("<h2>Ingredients</h2>")
-        ingredientDiv.addClass("col-md-5 float-left")
+        ingredientDiv.append("<h4>Ingredients</h4>")
+        ingredientDiv.addClass("col-md-4 mx-auto float-left container")
         for (var j = 0; j < ingredients.length; j++) {
             var ingredientLine = $("<p>")
             ingredientLine.text(ingredients[j].text);
             ingredientDiv.append(ingredientLine);
+            
         }
         $("#recipeDetails").append(ingredientDiv);
     };
 
     function nutritionBreakout(totalDaily, totalNutrients) {
         var nutritionDiv = $("<div>")
-        nutritionDiv.addClass("text-center col-md-5 float-right")
-        var nutritionLabel = $("<h3>Nutrition Facts</h3>")
+        nutritionDiv.addClass("col-md-4 mx-auto float-right container")
+        var nutritionLabel = $("<h4>Nutrition Facts</h4>")
         var nutritionTable = $("<table>")
-        nutritionTable.addClass("col-md-5 mx-auto")
+        nutritionTable.addClass("container")
         var tableHeader = $("<tr><th>Name</th><th>Quantity</th><th>Percentile</th></tr>")
         nutritionTable.append(tableHeader);
         var rowKcal = $("<tr>")
@@ -197,7 +203,7 @@ $(document).ready(function () {
             directionbutton.attr("href",link);
             directionbutton.attr("target", "_blank");
             directionbutton.text("Link to recipe");
-            directionbutton.addClass("btn btn-outline-light");
+            directionbutton.addClass("button3");
             directiondiv.append(directionbutton);
             $("#recipeDetails").append(directiondiv);
         }
